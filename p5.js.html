@@ -1,0 +1,53 @@
+let xbol = 300
+let ybol = 200
+let vx = 6
+let vy = 6
+let diametro = 15
+let raio = diametro/2
+
+let xraq = 5
+let yraq = 150
+let largraq = 10
+let altraq = 90
+
+function setup() {
+  createCanvas(600, 400);
+}
+
+function draw() {
+  background("black");
+  circle(xbol, ybol, diametro)
+  xbol += vx
+  ybol += vy
+  
+  if (xbol + raio > width || xbol - raio < 0) {
+  vx *= -1
+  }
+  
+  if (ybol + raio > height || ybol - raio < 0) {
+  vy *= -1
+  }
+  
+  rect(xraq, yraq, largraq, altraq)
+  
+  if (keyIsDown (UP_ARROW)) {
+    yraq -= 10
+  }
+  if (keyIsDown (DOWN_ARROW)) {
+    yraq += 10
+  }
+  
+  if (xbol - raio < xraq + largraq) {
+        vx *= -1;
+    }
+  
+  let xraqoponente = 585
+  let yraqoponente = 150
+  let vyoponente;
+  
+  rect(xraqoponente, yraqoponente, largraq, altraq)
+
+    vyoponente = (ybol - yraqoponente - largraq / 2) - 30;
+    yraqoponente += vyoponente
+
+}
